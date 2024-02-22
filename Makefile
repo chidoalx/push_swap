@@ -6,7 +6,7 @@ NAME = push_swap
 
 SRCS = main.c set_param.c parcing.c ft_atoi.c \
 		ft_putchar_fd.c ft_putnbr_fd.c instructions_b.c\
-		ft_putstr_fd.c ft_split.c instructions_a.c \
+		ft_putstr_fd.c ft_split.c instructions_a.c rrr.c\
 		ft_strlen.c ft_strjoin.c join_param.c ft_strcpy.c \
 
 

@@ -53,6 +53,29 @@ char    **ft_joinstr(char   **s1, char **s2)
     }
 	str[i] = NULL;
 	free(s1);
+	free(s2);
 	return (str);
 
 }
+/*
+void ff(void)
+{
+	system("leaks a.out");
+}
+
+int main()
+{
+	char *s1 = "1 2 3 4 5";
+	char *s2 = "6 7 8 9";
+	char **str1 = ft_split(s1, ' ');
+	char **str2 = ft_split(s2, ' ');
+	char **pp = ft_joinstr(str1, str2);
+	int i = 0;
+	atexit(ff);
+	while (pp[i])
+	{
+		printf("%s\n", pp[i]);
+		i++;
+	}
+}
+*/

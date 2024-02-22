@@ -49,4 +49,7 @@ void    ra(t_data *arg);
 void    rb(t_data *arg);
 void    rr(t_data *arg);
 void    ss(t_data *arg);
+void    rra(t_data *arg);
+void    rrb(t_data *arg);
+void    rrr(t_data *arg);
 #endif

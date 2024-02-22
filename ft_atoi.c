@@ -15,13 +15,11 @@
 int	ft_atoi(char *str)
 {
 	int		i;
-	long	tmp;
 	int		sign;
 	long	result;
 
 	i = 0;
 	sign = 1;
-	tmp = 0;
 	result = 0;
 	while (str[i] == 32)
 		i++;

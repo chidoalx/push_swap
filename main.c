@@ -27,25 +27,28 @@ int main (int ac, char **av)
             if (av[i][0] == '\0')
                 return (ft_putstr_fd("Error\n", 1), 1);
             arg.str = ft_split(av[i], ' ');
-            if (!arg.str[0])
+            if (!arg.str || !arg.str[0])
                 return (ft_putstr_fd("Error\n", 1), 1);
             arg.tab = ft_joinstr(arg.tab, arg.str);
             i++;
         }
         j = 0;
         ft_parcing(&arg);
+        arg.stack_b[0] = 4;
+        arg.stack_b[1] = 3;
+        arg.stack_b[2] = 2;
+        arg.stack_b[3] = 1;
+        arg.stack_b[4] = 0;
+        ft_putstr_fd("*******stack_a befor********\n", 1);
         while (j < arg.t_len)
             printf("%d\n",arg.stack_a[j++]);
-        ft_putstr_fd("*******(pa)stack_a********\n", 1);
-        pa(&arg);
-        pa(&arg);
-        pa(&arg);
+        ft_putstr_fd("*******(pa pb)********\n", 1);
+        rra(&arg);
+        rra(&arg);
+        ft_putstr_fd("*******stack_a after********\n", 1);
         j = 0;
-        while (j < arg.t_len + 1)
+        while (j < arg.t_len)
             printf("%d\n",arg.stack_a[j++]);
-        j = 0;
-        while (j < arg.t_len + 1)
-            printf("**%d**\n",arg.stack_b[j++]);
     }
     return (0);
 }

@@ -24,17 +24,22 @@ void    sb(t_data *arg)
 void    pb(t_data *arg)
 {
     int r;
-    int i;
+    int j;
 
-    i = arg->t_len + 1;
+    j = 0;
     r = arg->stack_b[0];
-    while (i >= 0)
+    while (j < arg->t_len)
     {
-        arg->stack_a[i] = arg->stack_a[i - 1];
-        if (i == 0)
-            arg->stack_a[i] = r;
-        i--;
+        arg->stack_b[j] = arg->stack_b[j + 1];
+        j++;
     }
+    j = arg->t_len;
+    while (j > 0)
+    {
+        arg->stack_a[j] = arg->stack_a[j - 1];
+        j--;
+    }
+    arg->stack_a[0] = r;
 }
 
 void    rb(t_data *arg)
@@ -60,7 +65,17 @@ void    rr(t_data *arg)
     rb(arg);
 }
 
-// void    rrb(t_data *arg)
-// {
-    
-// }
+void    rrb(t_data *arg)
+{
+    int r;
+    int i;
+
+    i = arg->t_len - 1;
+    r = arg->stack_b[arg->t_len - 1];
+    while (i > 0)
+    {
+        arg->stack_b[i] = arg->stack_b[i - 1];
+        i--;
+    }
+    arg->stack_b[0] = r;
+}
