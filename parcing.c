@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:39:03 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/20 18:42:20 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/24 01:08:36 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void    ft_convert_str(t_data *arg)
     i = 0;
     while (arg->tab[i])
         i++;
-    arg->t_len = i;
+    arg->a_len = i;
     arg->stack_a = (int *)malloc(sizeof(int) * i);
     arg->stack_b = (int *)malloc(sizeof(int) * i);
     if (!arg->stack_a || !arg->stack_b)
@@ -37,10 +37,10 @@ int    cheack_repeat_nb(t_data *arg)
     int j;
     
     i = 0;
-    while (i < arg->t_len - 1)
+    while (i < arg->a_len)
     {
         j = i + 1;
-        while (j < arg->t_len)
+        while (j < arg->a_len)
         {
             if (arg->stack_a[i] == arg->stack_a[j])
                 return (ft_putstr_fd("Error\n", 1), 1);

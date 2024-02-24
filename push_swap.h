@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:34:37 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/20 21:59:04 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/24 04:08:12 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ typedef struct s_data
     char    **str;
     int     i;
     int     j;
-    int     t_len;
+    int     a_len;
+    int     b_len;
     int     *stack_a;
     int     *stack_b;
 }       t_data;
@@ -41,6 +42,7 @@ void    ft_convert_str(t_data *arg);
 int    cheack_repeat_nb(t_data *arg);
 void 	ft_strcpy(char *dst, char *src);
 char    **ft_joinstr(char   **s1, char **s2);
+void    sorting(t_data *arg);
 void    sa(t_data *arg);
 void    pb(t_data *arg);
 void    sb(t_data *arg);

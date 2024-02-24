@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_param.c                                        :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 01:52:13 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/24 01:07:50 by ael-fagr         ###   ########.fr       */
+/*   Created: 2024/02/24 03:57:40 by ael-fagr          #+#    #+#             */
+/*   Updated: 2024/02/24 04:24:16 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    set_param(t_data *arg)
+void    sorting(t_data *arg)
 {
-    arg->i = 0;
-    arg->j = 0;
-    arg->a_len = 0;
-    arg->b_len = 0;
-    arg->tab = NULL;
-    arg->str = NULL;
+    while (arg->a_len > 0)
+    {
+        while (arg->a_len > 0)
+        {
+            if (arg->a_len == 0)
+                pb(arg);
+            if (arg->a_len > 0)
+            {
+                if (arg->stack_a[j] > arg->stack_a[j + 1])
+                    pb(arg);
+                else
+                    ra(arg);
+            }
+            j++;
+        }
+        i++;
+    }
 }

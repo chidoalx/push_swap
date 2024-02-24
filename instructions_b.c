@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:13:00 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/20 22:21:19 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/24 01:12:18 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,21 @@ void    pb(t_data *arg)
     int j;
 
     j = 0;
-    r = arg->stack_b[0];
-    while (j < arg->t_len)
+    r = arg->stack_a[0];
+    arg->a_len--;
+    arg->b_len++;
+    while (j < arg->a_len)
     {
-        arg->stack_b[j] = arg->stack_b[j + 1];
+        arg->stack_a[j] = arg->stack_a[j + 1];
         j++;
     }
-    j = arg->t_len;
+    j = arg->b_len;
     while (j > 0)
     {
-        arg->stack_a[j] = arg->stack_a[j - 1];
+        arg->stack_b[j] = arg->stack_b[j - 1];
         j--;
     }
-    arg->stack_a[0] = r;
+    arg->stack_b[0] = r;
 }
 
 void    rb(t_data *arg)
@@ -49,7 +51,7 @@ void    rb(t_data *arg)
     int j;
 
     j = 0;
-    i = arg->t_len;
+    i = arg->b_len;
     r = arg->stack_b[0];
     while (j < i)
     {
@@ -70,8 +72,8 @@ void    rrb(t_data *arg)
     int r;
     int i;
 
-    i = arg->t_len - 1;
-    r = arg->stack_b[arg->t_len - 1];
+    i = arg->b_len;
+    r = arg->stack_b[arg->b_len];
     while (i > 0)
     {
         arg->stack_b[i] = arg->stack_b[i - 1];
