@@ -12,23 +12,57 @@
 
 #include "push_swap.h"
 
-void    sorting(t_data *arg)
+int find_smallest(t_data *arg)
 {
-    while (arg->a_len > 0)
+    int smallest;
+    int i;
+
+    i = 1;
+    smallest = arg->stack_a[0];
+    while (i < arg->a_len)
     {
-        while (arg->a_len > 0)
-        {
-            if (arg->a_len == 0)
-                pb(arg);
-            if (arg->a_len > 0)
-            {
-                if (arg->stack_a[j] > arg->stack_a[j + 1])
-                    pb(arg);
-                else
-                    ra(arg);
-            }
-            j++;
-        }
+        if (arg->stack_a[i] < smallest)
+            smallest = arg->stack_a[i];
         i++;
     }
+    return (smallest);
+}
+
+void    sort_three(t_data *arg)
+{
+    if (arg->stack_a[0] > arg->stack_a[1]
+        && arg->stack_a[0] < arg->stack_a[2])
+        sa(arg);
+    else if (arg->stack_a[0] > arg->stack_a[1]
+        && arg->stack_a[0] > arg->stack_a[2])
+    {
+        if (arg->stack_a[0] > arg->stack_a[1]
+            && arg->stack_a[1] > arg->stack_a[2])
+        {
+            sa(arg);
+            rra(arg);
+        }
+        else if (arg->stack_a[0] > arg->stack_a[1]
+            && arg->stack_a[1] < arg->stack_a[2])
+            ra(arg);
+    }
+    else if (arg->stack_a[0] < arg->stack_a[1]
+        && arg->stack_a[0] < arg->stack_a[2])
+    {
+        if (arg->stack_a[1] > arg->stack_a[2])
+        {
+            rra(arg);
+            sa(arg);
+        }
+    }
+    else if (arg->stack_a[0] < arg->stack_a[1]
+        && arg->stack_a[0] > arg->stack_a[2])
+        rra(arg);
+}
+
+
+void    sorting(t_data *arg)
+{
+    if (arg->a_len <= 3)
+        sort_three(arg);
 }

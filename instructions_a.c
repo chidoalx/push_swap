@@ -19,6 +19,7 @@ void    sa(t_data *arg)
     r = arg->stack_a[0];
     arg->stack_a[0] = arg->stack_a[1];
     arg->stack_a[1] = r;
+    printf("sa\n");
 }
 
 void    pa(t_data *arg)
@@ -27,21 +28,22 @@ void    pa(t_data *arg)
     int j;
 
     j = 0;
-    r = arg->stack_a[0];
-    arg->a_len++;
+    r = arg->stack_b[0];
     arg->b_len--;
-    while (j < arg->a_len)
+    arg->a_len++;
+    while (j < arg->b_len)
     {
-        arg->stack_a[j] = arg->stack_a[j + 1];
+        arg->stack_b[j] = arg->stack_b[j + 1];
         j++;
     }
     j = arg->a_len;
     while (j > 0)
     {
-        arg->stack_b[j] = arg->stack_b[j - 1];
+        arg->stack_a[j] = arg->stack_a[j - 1];
         j--;
     }
-    arg->stack_b[0] = r;
+    arg->stack_a[0] = r;
+    printf("pa\n");
 }
 
 void    ra(t_data *arg)
@@ -57,12 +59,14 @@ void    ra(t_data *arg)
         j++;
     }
     arg->stack_a[j] = r;
+    printf("ra\n");
 }
 
 void    ss(t_data *arg)
 {
     sa(arg);
     sb(arg);
+    printf("ss\n");
 }
 
 void    rra(t_data *arg)
@@ -78,4 +82,5 @@ void    rra(t_data *arg)
         i--;
     }
     arg->stack_a[0] = r;
+    printf("rra\n");
 }

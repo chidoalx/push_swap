@@ -43,6 +43,8 @@ int    cheack_repeat_nb(t_data *arg);
 void 	ft_strcpy(char *dst, char *src);
 char    **ft_joinstr(char   **s1, char **s2);
 void    sorting(t_data *arg);
+void    sort_three(t_data *arg);
+int     find_smallest(t_data *arg);
 void    sa(t_data *arg);
 void    pb(t_data *arg);
 void    sb(t_data *arg);
