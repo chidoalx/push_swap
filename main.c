@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:30:43 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/25 21:12:12 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:18:16 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,15 @@ int main (int ac, char **av)
     // printf ("smallest is (%d)\n", k);
     // k = find_longest(&arg, arg.stack_a);
     // printf ("longest is (%d)\n", k);
+    // printf ("+++++++++++stack a+++++++++\n");
+    // while (j < arg.a_len)
+    //     printf("%d\n", arg.stack_a[j++]);
+    // j = 0;
+    // printf ("+++++++++++stack b+++++++++\n");
+    // while (j < arg.b_len)
+    //     printf("%d\n", arg.stack_b[j++]);
+    // int k = find_smallest(&arg);
+    // printf ("smallest is (%d)\n", k);
     // printf ("+++++++++++stack a+++++++++\n");
     // while (j < arg.a_len)
     //     printf("%d\n", arg.stack_a[j++]);

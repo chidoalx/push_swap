@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:13:00 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/25 11:40:43 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:18:31 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,11 @@ void    pb(t_data *arg)
 void    rb(t_data *arg)
 {
     int r;
-    int i;
     int j;
 
     j = 0;
-    i = arg->b_len;
     r = arg->stack_b[0];
-    while (j < i)
+    while (j < arg->b_len - 1)
     {
         arg->stack_b[j] = arg->stack_b[j + 1];
         j++;
@@ -77,7 +75,7 @@ void    rrb(t_data *arg)
     int i;
 
     i = arg->b_len;
-    r = arg->stack_b[arg->b_len];
+    r = arg->stack_b[arg->b_len - 1];
     while (i > 0)
     {
         arg->stack_b[i] = arg->stack_b[i - 1];
@@ -85,4 +83,5 @@ void    rrb(t_data *arg)
     }
     arg->stack_b[0] = r;
     printf("rrb\n");
+
 }

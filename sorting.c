@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 03:57:40 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/25 21:15:59 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:20:54 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@
 //         pb(arg);
 // }
 
-void    sorting(t_data *arg)
+
+void sorting(t_data *arg)
 {
     if (arg->a_len <= 3)
         sort_three(arg);
     else if (arg->a_len <= 5)
         sort_five(arg);
 }
+
+
