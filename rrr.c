@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 01:27:58 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/21 01:29:21 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:24:12 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 #include "push_swap.h"
 void    rrr(t_data *arg)
 {
-    rra(arg);
-    rrb(arg);
+	rra(arg);
+	rrb(arg);
 }

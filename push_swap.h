@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:34:37 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/25 12:06:36 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:24:18 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 
 typedef struct s_data
 {
-    char    **tab;
-    char    **str;
-    int     i;
-    int     j;
-    int     a_len;
-    int     b_len;
-    int     *stack_a;
-    int     *stack_b;
+	char    **tab;
+	char    **str;
+	int     i;
+	int     j;
+	int     a_len;
+	int     b_len;
+	int     *stack_a;
+	int     *stack_b;
 }       t_data;
 
 size_t	ft_strlen(char *str);
