@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:34:37 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/24 04:08:12 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/25 12:06:36 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ void 	ft_strcpy(char *dst, char *src);
 char    **ft_joinstr(char   **s1, char **s2);
 void    sorting(t_data *arg);
 void    sort_three(t_data *arg);
-int     find_smallest(t_data *arg);
+void    sort_five(t_data *arg);
+int     find_smallest(t_data *arg, int *stack);
+int     find_longest(t_data *arg, int *stack);
+int     is_sorted(int *array, int len);
 void    sa(t_data *arg);
 void    pb(t_data *arg);
 void    sb(t_data *arg);

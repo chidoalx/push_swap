@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:13:00 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/24 01:12:18 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/25 11:40:43 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void    sb(t_data *arg)
     r = arg->stack_b[0];
     arg->stack_b[0] = arg->stack_b[1];
     arg->stack_b[1] = r;
+    printf("sb\n");
 }
 
 void    pb(t_data *arg)
@@ -42,6 +43,7 @@ void    pb(t_data *arg)
         j--;
     }
     arg->stack_b[0] = r;
+    printf("pb\n");
 }
 
 void    rb(t_data *arg)
@@ -59,12 +61,14 @@ void    rb(t_data *arg)
         j++;
     }
     arg->stack_b[j] = r;
+    printf("rb\n");
 }
 
 void    rr(t_data *arg)
 {
     ra(arg);
     rb(arg);
+    printf("rr\n");
 }
 
 void    rrb(t_data *arg)
@@ -80,4 +84,5 @@ void    rrb(t_data *arg)
         i--;
     }
     arg->stack_b[0] = r;
+    printf("rrb\n");
 }
