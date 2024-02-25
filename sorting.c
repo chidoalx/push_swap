@@ -60,9 +60,25 @@ void    sort_three(t_data *arg)
         rra(arg);
 }
 
+void    sort_five(t_data *arg)
+{
+	while (arg->stack_a[0] != find_smallest(arg))
+		ra(arg);
+	pb(arg);
+	while (arg->stack_a[0] != find_smallest(arg))
+		ra(arg);
+	pb(arg);
+	sort_three(arg);
+	pa(arg);
+	pa(arg);
+	if (arg->stack_a[0] > arg->stack_a[1])
+		sa(arg);
+}
 
-void    sorting(t_data *arg)
+void sorting(t_data *arg)
 {
     if (arg->a_len <= 3)
         sort_three(arg);
+    else if (arg->a_len <= 5)
+        sort_five(arg);
 }

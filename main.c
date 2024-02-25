@@ -35,8 +35,8 @@ int main (int ac, char **av)
     }
     ft_parcing(&arg);
     j = 0;
-    //sorting(&arg);
-    sort_three(&arg);
+    sorting(&arg);
+    //sort_three(&arg);
     int k = find_smallest(&arg);
     printf ("smallest is (%d)\n", k);
     printf ("+++++++++++stack a+++++++++\n");
