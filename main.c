@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:30:43 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/25 22:37:47 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:07:20 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ int main (int ac, char **av)
 		{
 			if (av[i][0] == '\0')
 				return (ft_putstr_fd("Error\n", 1), 1);
-			arg.str = ft_split(av[i], ' ');
-			arg.tab = ft_joinstr(arg.tab, arg.str);
+			arg.str = ft_strjoin(arg.str, av[i]);
+			arg.str = ft_strjoin(arg.str, " ");
 			if (!arg.str || !arg.str[0])
 				return (ft_putstr_fd("Error\n", 1), 1);
 			i++;
 		}
+		arg.tab = ft_split(arg.str, ' ');
 	}
 	ft_parcing(&arg);
 	j = 0;

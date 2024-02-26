@@ -6,12 +6,27 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 15:41:41 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/25 20:57:17 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:58:19 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// int pos (t_data *arg)
+// {
+// 	int i;
+// 	i = 0;
+// 	while (i < arg->a_len)
+// 	{
+// 		if (arg->stack_a[i] == find_smallest(arg, arg->stack_a))
+// 			break;
+// 		i++;
+// 	}
+// 	return i;
+// }
+//if i ft_lstsize(stack) / 2
+//if > rra
+//else ra
 int find_smallest(t_data *arg, int *stack)
 {
 	int smallest;
