@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:34:37 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/26 18:26:48 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:11:10 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ typedef struct s_data
 	int     j;
 	int     a_len;
 	int     b_len;
+	int		rang;
 	int     *stack_a;
 	int     *stack_b;
 }       t_data;
+
 
 size_t	ft_strlen(char *str);
 char	**ft_split(char *s, char c);
@@ -42,12 +44,15 @@ void    ft_convert_str(t_data *arg);
 int    cheack_repeat_nb(t_data *arg);
 void 	ft_strcpy(char *dst, char *src);
 void    sorting(t_data *arg);
-void    sort_three(t_data *arg);
-void    sort_five(t_data *arg);
+void    sort_two(t_data *arg, int *stack, int i);
+void    sort_three(t_data *arg, int *stack);
+void    sort_five(t_data *arg, int *stack, int i);
 int     find_smallest(t_data *arg, int *stack);
 int     find_longest(t_data *arg, int *stack);
 int     is_sorted(int *array, int len);
+int		get_index (t_data *arg, int a);
 int		pos (t_data *arg);
+void	sort_stack(t_data *arg);
 void    sa(t_data *arg);
 void    pb(t_data *arg);
 void    sb(t_data *arg);

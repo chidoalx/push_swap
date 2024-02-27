@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 01:52:13 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/25 21:24:08 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/02/27 10:49:16 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void    set_param(t_data *arg)
 	arg->j = 0;
 	arg->a_len = 0;
 	arg->b_len = 0;
+	arg->rang = 0;
 	arg->tab = NULL;
 	arg->str = NULL;
 }
