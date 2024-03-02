@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:34:37 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/27 18:11:10 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/02 03:34:26 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_data
 	int		rang;
 	int     *stack_a;
 	int     *stack_b;
+	int		*cp_tab;
 }       t_data;
 
 

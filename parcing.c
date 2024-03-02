@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:39:03 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/25 21:24:28 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/02 03:36:18 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ void    ft_convert_str(t_data *arg)
 	arg->a_len = i;
 	arg->stack_a = (int *)malloc(sizeof(int) * i);
 	arg->stack_b = (int *)malloc(sizeof(int) * i);
-	if (!arg->stack_a || !arg->stack_b)
+	arg->cp_tab = (int *)malloc(sizeof(int) * i);
+	if (!arg->stack_a || !arg->stack_b || !arg->stack_b)
 		return ;
 	i = 0;
 	while (arg->tab[i])
 	{
 		arg->stack_a[i] = ft_atoi(arg->tab[i]);
+		arg->cp_tab[i] = ft_atoi(arg->tab[i]);
 		i++;
 	}
 }

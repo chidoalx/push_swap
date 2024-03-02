@@ -18,7 +18,7 @@ RM = rm -f
 all: $(NAME)
 
 %.o: %.c push_swap.h  
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) -g $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $@
