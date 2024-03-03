@@ -18,7 +18,7 @@ void    set_param(t_data *arg)
 	arg->j = 0;
 	arg->a_len = 0;
 	arg->b_len = 0;
-	arg->rang = 0;
+	arg->flag = 0;
 	arg->tab = NULL;
 	arg->str = NULL;
 }
