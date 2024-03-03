@@ -6,11 +6,11 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:47:08 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/03 22:47:43 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/03 22:41:20 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void    sa(t_data *arg)
 {
@@ -19,7 +19,6 @@ void    sa(t_data *arg)
     r = arg->stack_a[0];
     arg->stack_a[0] = arg->stack_a[1];
     arg->stack_a[1] = r;
-    printf("sa\n");
 }
 
 void    pa(t_data *arg)
@@ -45,7 +44,6 @@ void    pa(t_data *arg)
             j--;
         }
         arg->stack_a[0] = r;
-        printf("pa\n");
     }
 }
 
@@ -62,14 +60,12 @@ void    ra(t_data *arg)
         j++;
     }
     arg->stack_a[j] = r;
-    printf("ra\n");
 }
 
 void    ss(t_data *arg)
 {
     sa(arg);
     sb(arg);
-    printf("ss\n");
 }
 
 void    rra(t_data *arg)
@@ -85,5 +81,4 @@ void    rra(t_data *arg)
         i--;
     }
     arg->stack_a[0] = r;
-    printf("rra\n");
 }

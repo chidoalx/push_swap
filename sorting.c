@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 03:57:40 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/02 04:34:13 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/03 23:23:55 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,25 +62,23 @@ int	sort_b(t_data *arg, int len, int count)
 	int number;
 
 	number = len;
-	if (!count && check_sorted(arg->stack_b, len) == 1)
+	if (check_sorted(arg->stack_b, len))
+	{
 		while (len--)
 			pa(arg);
-	if (len <= 3)
-	{
-		sort_three(arg, arg->stack_b);
-		return (1);
 	}
-	get_pivot(arg, arg->stack_b, len);
+	if (!get_pivot(arg, arg->stack_b, len))
+		return (1);
 	while (len != number / 2)
 	{
 		if (arg->stack_b[0] >= arg->pivot && len--)
-			pa(arg);
+				pa(arg);
 		else
 			(rb(arg), count++);
 	}
 	while (number / 2 != arg->b_len && count--)
 		rrb(arg);
-	return (sort_a(arg, number / 2 + number % 2, 0)
+	return (sort_a(arg, (number / 2) + (number % 2), 0)
 		&& sort_b(arg, number / 2, 0));
 }
 
@@ -88,15 +86,16 @@ int sort_a(t_data *arg, int len, int count)
 {
 	int number;
 
-	if (is_sorted(arg->stack_a, len) == 1)
-		return (1);
+	number = len;
+	if (is_sorted(arg->stack_a, len))
+		return(1);
 	if (len <= 3)
 	{
 		sort_three(arg, arg->stack_a);
 		return (1);
 	}
-	number = len;
-	get_pivot(arg, arg->stack_a, len);
+	if (!get_pivot(arg, arg->stack_a, len))
+		return (1);
 	while (len != (number / 2) + number % 2)
 	{
 		if (arg->stack_a[0] < arg->pivot && len--)
@@ -106,7 +105,7 @@ int sort_a(t_data *arg, int len, int count)
 	}
 	while (number / 2 + number % 2 != arg->a_len && count--)
 		rra(arg);
-	return (sort_a(arg, number / 2 + number % 2, 0)
+	return (sort_a(arg, (number / 2) + (number % 2), 0)
 		&& sort_b(arg, number / 2, 0));
 }
 
@@ -117,10 +116,7 @@ void sorting(t_data *arg)
 	else if (arg->a_len <= 3)
 		sort_three(arg, arg->stack_a);
 	else
-	{
 		sort_a(arg, arg->a_len, 0);
-		// printf("%d\n",arg->b_len);
-	}
 }
 
 

@@ -6,11 +6,11 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 15:41:41 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/03 23:09:39 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/03 21:43:46 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int is_sorted(int *array, int len)
 {
@@ -26,53 +26,35 @@ int is_sorted(int *array, int len)
 	return (1);
 }
 
-int	check_sorted(int *stack, int dim)
+void make_actions(t_data *arg)
 {
-	int	i;
+	int i;
 
-	i = 1;
-	while (i < dim)
+	i = 0;
+	while (arg->inst[i])
 	{
-		if (stack[i - 1] < stack[i])
-			return (0);
+		if (!strncmp(arg->inst[i], "ra", 2))
+			ra(arg);
+		else if (!strncmp(arg->inst[i], "rb", 2))
+			rb(arg);
+		else if (!strncmp(arg->inst[i], "rr", 2))
+			rr(arg);
+		else if (!strncmp(arg->inst[i], "rra", 3))
+			rra(arg);
+		else if (!strncmp(arg->inst[i], "rrb", 3))
+			rrb(arg);
+		else if (!strncmp(arg->inst[i], "rrr", 3))
+			rrr(arg);
+		else if (!strncmp(arg->inst[i], "sa", 2))
+			sa(arg);
+		else if (!strncmp(arg->inst[i], "sb", 2))
+			sb(arg);
+		else if (!strncmp(arg->inst[i], "ss", 2))
+			ss(arg);
+		else if (!strncmp(arg->inst[i], "pa", 2))
+			pa(arg);
+		else if (!strncmp(arg->inst[i], "pb", 2))
+			pb(arg);
 		i++;
 	}
-	return (1);
-}
-
-void    sort_two(t_data *arg, int *stack, int i)
-{
-	if (i == 2)
-	{
-		if (stack[0] > stack[1])
-			sa(arg);
-	}
-	else
-		return ;
-}
-
-void    sort_three(t_data *arg, int *stack)
-{
-	if (stack[0] > stack[1]
-		&& stack[0] < stack[2])
-		sa(arg);
-	else if (stack[0] > stack[1]
-		&& stack[0] > stack[2])
-	{
-		if (stack[0] > stack[1]
-			&& stack[1] > stack[2])
-			(sa(arg), rra(arg));
-		else if (stack[0] > stack[1]
-			&& stack[1] < stack[2])
-			ra(arg);
-	}
-	else if (stack[0] < stack[1]
-		&& stack[0] < stack[2])
-	{
-		if (stack[1] > stack[2])
-			(rra(arg), sa(arg));
-	}
-	else if (stack[0] < stack[1]
-		&& stack[0] > stack[2])
-		rra(arg);
 }

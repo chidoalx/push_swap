@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:30:43 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/03 13:13:31 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/03 21:44:36 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int main (int ac, char **av)
 {
@@ -24,16 +24,17 @@ int main (int ac, char **av)
 		while (av[i])
 		{
 			if (av[i][0] == '\0')
-				return (ft_putstr_fd("Error\n", 1), 1);
+				return (ft_putstr_fd("Error\n", 2), 1);
 			arg.str = ft_strjoin(arg.str, av[i]);
 			arg.str = ft_strjoin(arg.str, " ");
 			if (!arg.str || !arg.str[0])
-				return (ft_putstr_fd("Error\n", 1), 1);
+				return (ft_putstr_fd("Error\n", 2), 1);
 			i++;
 		}
-		arg.tab = ft_split(arg.str, ' ');
+		(arg.tab = ft_split(arg.str, ' '), free(arg.str));
+		arg.str = NULL;
 		ft_parcing(&arg);
-		sorting(&arg);
+		operation_handle(&arg);
 	}
 	return (0);
 }
