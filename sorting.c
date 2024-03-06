@@ -6,37 +6,11 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 03:57:40 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/03 23:23:55 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/06 02:52:43 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void swap(int* a, int* b)
-{
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-void bubbleSort(int arr[], int n)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-    while (i < n - 1)
-	{
-		j = 0;
-        while (j < n - i - 1)
-		{
-            if (arr[j] > arr[j + 1]) 
-                swap(&arr[j], &arr[j + 1]);
-			j++;
-        }
-		i++;
-    }
-}
 
 int	get_pivot(t_data *arg, int *stack, int len)
 {
@@ -46,12 +20,15 @@ int	get_pivot(t_data *arg, int *stack, int len)
 
 	tmp = (int *)malloc(sizeof(int) * len);
 	if (!tmp)
-		return (0);
+	{
+		(free(arg->stack_a), free(arg->stack_b));
+		return (free(tmp), 0);
+	}
 	i = 0;
 	j = 0;
 	while (i < len)
 		tmp[j++] = stack[i++];
-	bubbleSort(tmp, len);
+	bubble_sort(tmp, len);
 	arg->pivot = tmp[len / 2];
 	free(tmp);
 	return (1);
@@ -59,7 +36,7 @@ int	get_pivot(t_data *arg, int *stack, int len)
 
 int	sort_b(t_data *arg, int len, int count)
 {
-	int number;
+	int	number;
 
 	number = len;
 	if (check_sorted(arg->stack_b, len))
@@ -67,14 +44,16 @@ int	sort_b(t_data *arg, int len, int count)
 		while (len--)
 			pa(arg);
 	}
+	if (len <= 3)
+		return (sort_three_b(arg, len), 1);
 	if (!get_pivot(arg, arg->stack_b, len))
 		return (1);
 	while (len != number / 2)
 	{
 		if (arg->stack_b[0] >= arg->pivot && len--)
-				pa(arg);
+			pa(arg);
 		else
-			(rb(arg), count++);
+			(rb(arg), ++count);
 	}
 	while (number / 2 != arg->b_len && count--)
 		rrb(arg);
@@ -82,16 +61,16 @@ int	sort_b(t_data *arg, int len, int count)
 		&& sort_b(arg, number / 2, 0));
 }
 
-int sort_a(t_data *arg, int len, int count)
+int	sort_a(t_data *arg, int len, int count)
 {
-	int number;
+	int	number;
 
 	number = len;
 	if (is_sorted(arg->stack_a, len))
-		return(1);
+		return (1);
 	if (len <= 3)
 	{
-		sort_three(arg, arg->stack_a);
+		sort_three(arg, len);
 		return (1);
 	}
 	if (!get_pivot(arg, arg->stack_a, len))
@@ -101,7 +80,7 @@ int sort_a(t_data *arg, int len, int count)
 		if (arg->stack_a[0] < arg->pivot && len--)
 			pb(arg);
 		else
-			(ra(arg), count++);
+			(ra(arg), ++count);
 	}
 	while (number / 2 + number % 2 != arg->a_len && count--)
 		rra(arg);
@@ -109,14 +88,12 @@ int sort_a(t_data *arg, int len, int count)
 		&& sort_b(arg, number / 2, 0));
 }
 
-void sorting(t_data *arg)
+void	sorting(t_data *arg)
 {
 	if (arg->a_len <= 2)
-		sort_two(arg, arg->stack_a, arg->a_len);
+		sort_two(arg, arg->a_len);
 	else if (arg->a_len <= 3)
-		sort_three(arg, arg->stack_a);
+		sort_three(arg, arg->a_len);
 	else
 		sort_a(arg, arg->a_len, 0);
 }
-
-

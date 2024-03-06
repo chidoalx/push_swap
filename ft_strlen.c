@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:24:30 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/02/18 05:04:03 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/06 02:36:32 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlen(char *str)
 
 	i = 0;
 	if (!str)
-		return(0);
+		return (0);
 	while (str[i])
 		i++;
 	return (i);

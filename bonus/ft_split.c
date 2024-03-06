@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 02:44:38 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/03 12:37:59 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/06 02:26:51 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	**free2d(char **arr, int index)
 	return (NULL);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(t_data *arg, char *s, char c)
 {
 	int		i;
 	int		index;
@@ -75,6 +75,7 @@ char	**ft_split(char *s, char c)
 	char	**arr;
 
 	tail_matrice = count_words(s, c);
+	arg->op = tail_matrice;
 	index = -1;
 	arr = (char **)malloc(sizeof(char *) * (tail_matrice + 1));
 	if (!(arr))
@@ -92,6 +93,5 @@ char	**ft_split(char *s, char c)
 		while (*s && *s != c)
 			s++;
 	}
-	arr[index] = NULL;
-	return (arr);
+	return (arr[index] = NULL, arr);
 }

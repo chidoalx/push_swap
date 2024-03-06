@@ -6,15 +6,15 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 15:41:41 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/03 21:43:46 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/06 02:34:02 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-int is_sorted(int *array, int len)
+int	is_sorted(int *array, int len)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < len)
@@ -26,35 +26,41 @@ int is_sorted(int *array, int len)
 	return (1);
 }
 
-void make_actions(t_data *arg)
+static void	finish_actions(t_data *arg, int i)
 {
-	int i;
+	if (!ft_strncmp(arg->inst[i], "rr", 2))
+		rr(arg);
+	else if (!ft_strncmp(arg->inst[i], "sa", 2))
+		sa(arg);
+	else if (!ft_strncmp(arg->inst[i], "sb", 2))
+		sb(arg);
+	else if (!ft_strncmp(arg->inst[i], "ss", 2))
+		ss(arg);
+	else if (!ft_strncmp(arg->inst[i], "pa", 2))
+		pa(arg);
+	else if (!ft_strncmp(arg->inst[i], "pb", 2))
+		pb(arg);
+}
+
+void	make_actions(t_data *arg)
+{
+	int	i;
 
 	i = 0;
-	while (arg->inst[i])
+	while (i < arg->op)
 	{
-		if (!strncmp(arg->inst[i], "ra", 2))
-			ra(arg);
-		else if (!strncmp(arg->inst[i], "rb", 2))
-			rb(arg);
-		else if (!strncmp(arg->inst[i], "rr", 2))
-			rr(arg);
-		else if (!strncmp(arg->inst[i], "rra", 3))
+		if (!ft_strncmp(arg->inst[i], "rra", 3))
 			rra(arg);
-		else if (!strncmp(arg->inst[i], "rrb", 3))
+		else if (!ft_strncmp(arg->inst[i], "rrb", 3))
 			rrb(arg);
-		else if (!strncmp(arg->inst[i], "rrr", 3))
+		else if (!ft_strncmp(arg->inst[i], "rrr", 3))
 			rrr(arg);
-		else if (!strncmp(arg->inst[i], "sa", 2))
-			sa(arg);
-		else if (!strncmp(arg->inst[i], "sb", 2))
-			sb(arg);
-		else if (!strncmp(arg->inst[i], "ss", 2))
-			ss(arg);
-		else if (!strncmp(arg->inst[i], "pa", 2))
-			pa(arg);
-		else if (!strncmp(arg->inst[i], "pb", 2))
-			pb(arg);
+		else if (!ft_strncmp(arg->inst[i], "ra", 2))
+			ra(arg);
+		else if (!ft_strncmp(arg->inst[i], "rb", 2))
+			rb(arg);
+		else
+			finish_actions(arg, i);
 		i++;
 	}
 }
