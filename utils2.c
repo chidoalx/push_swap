@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 23:07:10 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/06 02:20:11 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/06 03:51:30 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	check_push(t_data *arg, int len, int f)
 
 {
-	if (f == 1)
-		pb(arg);
-	else if (f == 0)
+	if (f == 0)
 		pa(arg);
+	else if (f == 1)
+		pb(arg);
 	len--;
 	return (len);
 }
@@ -32,12 +32,11 @@ void	sort_three(t_data *arg, int len)
 		if (arg->stack_a[0] > arg->stack_a[1])
 			sa(arg);
 	}
-	else if (len == 3)
+	else
 	{
 		while (len != 3 || !is_sorted(arg->stack_a, len))
 		{
-			if (len == 3 && arg->stack_a[0] > arg->stack_a[1]
-				&& arg->stack_a[2])
+			if (len == 3 && arg->stack_a[0] > arg->stack_a[1])
 				sa(arg);
 			else if (len == 3 && !(arg->stack_a[2] > arg->stack_a[0]
 					&& arg->stack_a[2] > arg->stack_a[1]))
@@ -63,7 +62,7 @@ int	sort_three_b(t_data *arg, int len)
 	}
 	else if (len == 3)
 	{
-		while (len != 0 || !is_sorted(arg->stack_a, len))
+		while (len != 0)
 		{
 			if (len == 1 && arg->stack_a[0] > arg->stack_a[1])
 				sa(arg);

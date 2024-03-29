@@ -6,13 +6,13 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:39:03 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/06 02:36:10 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:22:00 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_convert_str(t_data *arg)
+int	ft_convert_str(t_data *arg)
 {
 	int	i;
 
@@ -21,18 +21,18 @@ void	ft_convert_str(t_data *arg)
 		i++;
 	arg->a_len = i;
 	arg->stack_a = (int *)malloc(sizeof(int) * i);
+	if (arg->stack_a == NULL)
+		(free (arg->stack_a), exit(1));
 	arg->stack_b = (int *)malloc(sizeof(int) * i);
-	if (!arg->stack_a || !arg->stack_b)
-	{
-		(free(arg->stack_a), free(arg->stack_b));
-		return ;
-	}
+	if (arg->stack_b == NULL)
+		(free (arg->stack_b), exit(1));
 	i = 0;
 	while (arg->tab[i])
 	{
 		arg->stack_a[i] = ft_atoi(arg->tab[i]);
 		i++;
 	}
+	return (0);
 }
 
 int	cheack_repeat_nb(t_data *arg)

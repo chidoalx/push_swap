@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 15:41:41 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/06 02:15:32 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:59:23 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	is_sorted(int *array, int len)
 	return (1);
 }
 
-int	check_sorted(int *stack, int dim)
+int	check_sorted(int *stack, int len)
 {
 	int	i;
 
 	i = 1;
-	while (i < dim)
+	while (i < len)
 	{
 		if (stack[i - 1] < stack[i])
 			return (0);
@@ -75,4 +75,33 @@ void	sort_three_help(t_data *arg)
 	else if (arg->stack_a[0] < arg->stack_a[1]
 		&& arg->stack_a[0] > arg->stack_a[2])
 		rra(arg);
+}
+
+void	sort_five(t_data *arg, int *stack, int i)
+{
+	int	j;
+	int	b;
+
+	b = 0;
+	if (is_sorted(stack, i))
+		return ;
+	if (!get_pivot(arg, stack, i))
+		return ;
+	j = i / 2;
+	while (j != 0)
+	{
+		if (stack[0] < arg->pivot && j--)
+		{
+			if (b == 2)
+				break ;
+			if (stack[0] < arg->stack_b[0] && arg->b_len != 0)
+				(pb(arg), sb(arg));
+			else
+				pb(arg);
+			b++;
+		}
+		else
+			ra(arg);
+	}
+	(sort_three(arg, arg->a_len), pa(arg), pa(arg));
 }

@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 21:39:04 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/06 02:28:02 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/21 21:48:04 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,14 @@ void	operation_handle(t_data *arg)
 		check_valid_inst(p);
 		arg->str = ft_strjoin(arg->str, p);
 		if (!arg->str || !arg->str[0])
-			(ft_putstr_fd("Error\n", 2), ft_free(&arg->str), exit(1));
+			(ft_putstr_fd("Error\n", 2), free(arg->str), exit(1));
+		free(p);
 	}
 	arg->inst = ft_split(arg, arg->str, '\n');
 	if (!arg->inst)
-		ft_free(arg->inst);
+		(ft_putstr_fd("Error\n", 2), ft_free(arg->inst), exit(1));
 	make_actions(arg);
-	if (is_sorted(arg->stack_a, arg->a_len) == 1)
+	if (is_sorted(arg->stack_a, arg->a_len) == 1 && arg->b_len == 0)
 		(ft_putstr_fd("OK\n", 1), exit(1));
 	else
 		(ft_putstr_fd("KO\n", 1), exit(0));

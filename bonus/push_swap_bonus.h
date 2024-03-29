@@ -6,7 +6,7 @@
 /*   By: ael-fagr <ael-fagr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 17:34:37 by ael-fagr          #+#    #+#             */
-/*   Updated: 2024/03/06 02:37:57 by ael-fagr         ###   ########.fr       */
+/*   Updated: 2024/03/15 15:24:04 by ael-fagr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_parcing(t_data *arg);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(char *s, int c);
 int		ft_strncmp(char *s1, char *s2, unsigned int n);
-void	ft_convert_str(t_data *arg);
+int		ft_convert_str(t_data *arg);
 int		cheack_repeat_nb(t_data *arg);
 int		is_sorted(int *array, int len);
 void	operation_handle(t_data *arg);

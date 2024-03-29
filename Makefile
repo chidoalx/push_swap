@@ -54,21 +54,21 @@ RM = rm -f
 all: $(NAME)
 
 $(BONUS_DIR)/%.o: $(BONUS_DIR)/%.c $(BONUS_DIR)/push_swap_bonus.h  
-	$(CC) $(CFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) -c -o $@ $<
 
 %.o: %.c push_swap.h  
-	$(CC) $(CFLAGS) -c -o $@ $<
+	@$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $@
+	@$(CC) $(CFLAGS) $(OBJECTS) -o $@
 
 bonus : $(OBJECTS_B)
-	$(CC) $(CFLAGS) $(OBJECTS_B) -o $(NAME_B)
+	@$(CC) $(CFLAGS) $(OBJECTS_B) -o $(NAME_B)
 
 clean:
-	$(RM) $(OBJECTS) $(OBJECTS_B)
+	@$(RM) $(OBJECTS) $(OBJECTS_B)
 
 fclean:	clean
-	$(RM) $(NAME) $(NAME_B)
+	@$(RM) $(NAME) $(NAME_B)
 
 re:	fclean $(NAME)
